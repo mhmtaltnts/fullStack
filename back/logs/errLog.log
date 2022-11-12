@@ -1,0 +1,107 @@
+20221031	12:35:43	191ee726-2d07-4d20-a29f-2cf5f75a5ffd	SyntaxError: Unexpected token = in JSON at position 11	POST	/	undefined
+20221031	13:01:07	da18eb05-d450-4d88-8f58-0a0a2a3eee68	SyntaxError: Unexpected token " in JSON at position 0	GET	/auth/refresh	undefined
+20221101	09:41:55	71e6e42d-c164-40f4-b753-a94efee979be	ValidationError: User validation failed: contact.phone: Path `contact.phone` is required., contact.postal_code: Path `contact.postal_code` is required., contact.country: Path `contact.country` is required., contact.region: Path `contact.region` is required., contact.city: Path `contact.city` is required., contact.address: Path `contact.address` is required.	POST	/auth/register	undefined
+20221101	11:46:30	ca8d4fdc-e8f1-4c3d-b1dc-c96e406aa929	Error: Not allowed by CORS	OPTIONS	/auth	http://127.0.0.1:5173
+20221101	11:46:32	98f37c4d-7c22-4a6a-b475-cfd0751ea7f0	Error: Not allowed by CORS	OPTIONS	/auth	http://127.0.0.1:5173
+20221101	12:39:04	4383da88-01b6-49c4-be6c-c9e02948f41a	Error: Not allowed by CORS	OPTIONS	/auth	http://localhost:3000
+20221101	12:39:06	15ab1e49-81cb-4647-b7df-2d7d64fa7dc9	Error: Not allowed by CORS	OPTIONS	/auth	http://localhost:3000
+20221101	12:41:06	6c7ece32-75be-4e8e-aa30-d0e6f756b21a	Error: Not allowed by CORS	OPTIONS	/auth	http://localhost:3000
+20221102	13:42:00	ec97d1fe-555a-4258-a53b-b5925248a231	SyntaxError: Unexpected token } in JSON at position 96	POST	/sendemail	undefined
+20221102	13:42:16	a5c5b823-2762-45aa-9c62-18747b07f773	Error: getaddrinfo ENOTFOUND gmail	POST	/sendemail	undefined
+20221102	13:43:17	02f5401e-4ed3-4956-8335-c025051981e9	Error: getaddrinfo ENOTFOUND gmail	POST	/sendemail	undefined
+20221102	13:46:56	b3ed184e-74e6-4899-aab5-7e68da6e67f3	Error: getaddrinfo ENOTFOUND gmail	POST	/sendemail	undefined
+20221102	13:48:04	59c92f53-e9a3-4957-a69b-8e77b8977a95	Error: getaddrinfo ENOTFOUND gmail	POST	/sendemail	undefined
+20221102	13:59:48	97edcdd2-22c8-449a-a9b6-305d67181d30	ReferenceError: info is not defined	POST	/sendemail	undefined
+20221102	17:48:01	2c48c951-1b41-425a-8af6-bc69f0846f79	TypeError: transporter.verify is not a function	POST	/sendemail	undefined
+20221102	17:48:54	9a056a39-8612-4b36-8e4a-e0af14de6da8	TypeError: transporter.verify is not a function	POST	/sendemail	undefined
+20221102	18:54:57	03917466-c130-473b-823d-8daffc711f7c	Error: Cannot find module 'ejs'
+Require stack:
+- C:\Users\mehmet\OneDrive\Desktop\Projects\biismihi\back-end\node_modules\express\lib\view.js
+- C:\Users\mehmet\OneDrive\Desktop\Projects\biismihi\back-end\node_modules\express\lib\application.js
+- C:\Users\mehmet\OneDrive\Desktop\Projects\biismihi\back-end\node_modules\express\lib\express.js
+- C:\Users\mehmet\OneDrive\Desktop\Projects\biismihi\back-end\node_modules\express\index.js
+- C:\Users\mehmet\OneDrive\Desktop\Projects\biismihi\back-end\server.js	GET	/forgot-password	undefined
+20221102	19:08:01	ede114c7-c60b-4eb7-b3d2-089d6c9f6b74	SyntaxError: Unexpected token } in JSON at position 41	GET	/forgot-password	undefined
+20221103	11:34:14	a1eab4d8-587e-45a5-b50f-4475028b966a	ReferenceError: path is not defined	GET	/	undefined
+20221103	11:36:05	196ab125-6c7a-4567-b824-ed4b878050e8	ReferenceError: path is not defined	GET	/	undefined
+20221103	11:36:07	041afd4c-c431-44ce-9f9f-307e94fea794	ReferenceError: path is not defined	GET	/	undefined
+20221103	11:39:07	2f3a2132-9d02-43fa-b37d-15cd5320fb22	Error: Not allowed by CORS	POST	/	http://localhost:9999
+20221103	13:21:34	add0132b-cd1a-4842-8fe3-2740452dc5c6	SyntaxError: Unexpected token } in JSON at position 43	POST	/auth/forgot-password	undefined
+20221103	13:23:41	97ecfc43-60ef-425f-b1ec-daf1563ee187	SyntaxError: Unexpected token } in JSON at position 43	POST	/auth/register	undefined
+20221103	13:35:48	c7f7ddef-d5ba-4d82-9ba1-a3da85d15a77	SyntaxError: Unexpected token } in JSON at position 29	POST	/auth/forgot-password	undefined
+20221103	19:27:49	f1787dad-4c8a-465e-b503-c6a39f946ae8	JsonWebTokenError: jwt malformed	POST	/auth/reset_password/:id/:token	http://localhost:3000
+20221106	17:43:34	0b6eec10-fc02-4797-89da-ea480fed0b74	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
+20221106	18:11:20	e3fe297b-d64c-48ea-b72a-ff769279d37c	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
+20221106	19:36:34	cafcb74c-a747-4cdc-9599-54de6c636cb6	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
+20221106	20:17:05	e13186d1-eccc-4121-b4ca-4f55264a2c15	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	undefined
+20221106	20:17:44	8a343f8c-e215-49b4-bb94-5d2048f24a76	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	undefined
+20221106	20:22:47	b9fb25de-c757-47eb-9583-59cdfb5524ff	TypeError: Cannot read properties of undefined (reading 'forEach')	POST	/products	undefined
+20221106	20:24:25	4c042048-c383-4d04-a2b7-4a51a0cefb3a	TypeError: Cannot read properties of undefined (reading 'forEach')	POST	/products	undefined
+20221106	20:26:49	157e1630-531d-4d58-b3ae-83b6395aebca	MulterError: Unexpected field	POST	/products	undefined
+20221106	21:01:09	2302cebe-2e98-48eb-8518-8f86cad5c05c	ReferenceError: images is not defined	POST	/products	http://localhost:3000
+20221106	21:04:02	e04c4e54-cdcc-4ecd-a653-a5d54404c238	ValidationError: Product validation failed: supplierId: Path `supplierId` is required.	POST	/products	http://localhost:3000
+20221106	21:06:57	baf63ff6-61b2-437d-8ad4-ff2dc7c178ef	ValidationError: Product validation failed: supplierId: Path `supplierId` is required.	POST	/products	undefined
+20221106	21:09:56	eb4c1ed4-8d3f-44c5-bd75-c554e92a9faa	ValidationError: Product validation failed: supplierId: Path `supplierId` is required.	POST	/products	http://localhost:3000
+20221107	13:17:28	17c30335-ca7a-42b8-917c-2060219e2738	ReferenceError: images is not defined	POST	/products	undefined
+20221107	13:20:49	f88d5502-8cce-45da-a36a-6e68462f6552	ReferenceError: images is not defined	POST	/products	undefined
+20221107	13:21:27	49f8fadc-1b2d-4c5b-b25e-1b786acdafdc	ReferenceError: images is not defined	POST	/products	undefined
+20221107	13:24:06	80e0a11e-115a-4dfc-adec-4be4692c6506	ReferenceError: images is not defined	POST	/products	undefined
+20221107	13:36:55	e1868f21-bd27-4d7f-9c1e-f340ea423d85	SyntaxError: Unexpected token } in JSON at position 139	POST	/products	undefined
+20221107	13:37:09	ec8fb4b6-6036-4a3e-b981-bd3d2059de56	ValidationError: Product validation failed: supplierId: Path `supplierId` is required.	POST	/products	undefined
+20221107	13:37:56	f8f7013a-adad-48cd-ae25-ede9a9e4be79	ValidationError: Product validation failed: supplierId: Path `supplierId` is required.	POST	/products	undefined
+20221107	13:38:32	bf30a5fd-6109-4415-9828-02a93ed8e3f0	ValidationError: Product validation failed: supplierId: Path `supplierId` is required.	POST	/products	undefined
+20221107	13:39:34	1488c7ab-4014-4493-80e9-3da711705e4b	ValidationError: Product validation failed: supplierId: Path `supplierId` is required.	POST	/products	undefined
+20221107	13:39:43	148c989d-26a9-4775-85c3-a3b9fae3c7b7	SyntaxError: Unexpected token c in JSON at position 28	POST	/products	undefined
+20221107	13:39:52	7338b70d-8531-44a1-b52b-9374bcece8fb	ValidationError: Product validation failed: supplierId: Path `supplierId` is required.	POST	/products	undefined
+20221107	13:41:30	b54af232-7c1e-433c-a55c-73d28f8bd53c	ValidationError: Product validation failed: supplierId: Path `supplierId` is required.	POST	/products	undefined
+20221107	13:57:10	e5360f02-70e7-44f2-9ab0-536ea224419d	ValidationError: Product validation failed: supplierId: Path `supplierId` is required.	POST	/products	undefined
+20221107	15:23:39	56759896-dae4-4bf7-9bcf-915f91844581	TypeError: Cannot read properties of null (reading 'username')	GET	/products	http://localhost:3000
+20221107	15:23:55	f25a64d6-e15d-4c2b-a31f-3e605884b376	TypeError: Cannot read properties of null (reading 'username')	GET	/products	http://localhost:3000
+20221107	15:24:11	3c60c913-7029-4668-8b6f-9877ae6f7eeb	TypeError: Cannot read properties of null (reading 'username')	GET	/products	http://localhost:3000
+20221107	15:24:27	f660e65d-7f76-45db-96c9-b275459a31be	TypeError: Cannot read properties of null (reading 'username')	GET	/products	http://localhost:3000
+20221107	15:24:43	be3584e9-a8b6-4d0b-8cbc-488931a72d31	TypeError: Cannot read properties of null (reading 'username')	GET	/products	http://localhost:3000
+20221107	15:24:59	238cad22-47c0-44b9-9ae5-2c9e814a0ddf	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221107	15:25:15	89c857b8-4333-464c-bafc-8aaf30f00312	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221108	13:13:15	9430aaad-8ff3-4a19-b43f-af27703d5b6c	TypeError: Cannot destructure property 'images' of 'req.file' as it is undefined.	POST	/products	http://localhost:3000
+20221108	13:14:18	c63af283-1751-4c1c-8764-bc5dbe6537e9	TypeError: Cannot destructure property 'images' of 'req.file' as it is undefined.	POST	/products	http://localhost:3000
+20221108	13:18:02	de37767a-5212-43ef-b84e-3feb252de028	TypeError: Cannot destructure property 'images' of 'req.file' as it is undefined.	POST	/products	http://localhost:3000
+20221108	13:20:47	ce5a3087-32d2-4e4d-a562-a71a66fb6575	ReferenceError: images is not defined	POST	/products	http://localhost:3000
+20221108	13:25:40	7378c4e3-7c8e-40ee-86a3-0796fcd75af4	ReferenceError: images is not defined	POST	/products	http://localhost:3000
+20221108	13:27:01	52af220e-fb87-455e-8180-2f05c2e1501f	ReferenceError: images is not defined	POST	/products	http://localhost:3000
+20221108	13:29:49	8e7d85f5-6a66-4e44-9def-e16116920a7f	ReferenceError: images is not defined	POST	/products	http://localhost:3000
+20221108	13:32:48	1fd15613-e59a-47c4-9cd3-e1d01f6d0e36	ReferenceError: images is not defined	POST	/products	http://localhost:3000
+20221108	13:32:48	398dc778-8541-4ab9-8d0e-d5b8f3542a06	ReferenceError: images is not defined	POST	/products	http://localhost:3000
+20221108	13:45:41	c2530d91-e2ff-4c96-a810-efa44663d482	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	13:45:41	99fbebb8-8ee0-487c-865d-ffd29627b068	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	13:47:12	ed96d89a-912d-4269-a580-5451509bc279	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	13:47:12	5318e412-9d6b-427c-8ca7-9d22a721e784	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	13:48:46	27ed0e8a-3ac7-43c0-b12c-ab3aec8d2f95	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	13:48:46	2c52e846-85d3-42c3-9d78-02f2bd693791	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	13:55:10	88831ca1-9655-4c44-a066-a882beab70e4	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	14:45:03	573d5bb1-9f9d-4136-b7f0-2e4cf03803b5	ReferenceError: images is not defined	POST	/products	http://localhost:3000
+20221108	14:45:05	a99b8a07-ef76-419d-8c65-b0960fe8db35	ReferenceError: images is not defined	POST	/products	http://localhost:3000
+20221108	14:53:55	ac908783-7af1-4c96-8bc4-f3788cd6d6c6	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	14:54:50	6026ec1a-ddb8-43bc-bf68-1b07c5cfde08	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	14:55:11	5104ad89-1563-4db7-a56b-40ccd02020f8	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	14:56:21	d2e2b7a6-4095-4461-b5b2-0706e4917674	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	15:42:04	b3996c30-5d47-4aec-bfc4-f6b8699d68f0	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	15:44:11	fc24d91f-c200-4456-9894-325cac87e659	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	15:44:45	df6b805f-68c7-42ae-ab02-438ee906b5b5	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	15:47:30	a84731d2-0308-498a-b010-3a37cb58a8c3	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	15:49:14	4468cd0c-81c9-4eeb-82b6-de490698c84e	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	16:03:50	a33c8388-5f90-4f16-8b92-d6747af93f47	MulterError: Unexpected field	POST	/products	http://localhost:3000
+20221108	16:25:30	75aa1c82-164b-4901-a0e6-375910b0893a	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	16:25:49	cc274a44-957f-464a-a682-b14d9e36d390	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	16:27:54	04ec8c8d-1d5c-477a-8420-21de0fc33308	MulterError: Unexpected field	POST	/products	http://localhost:3000
+20221108	16:30:52	a0082534-72fe-49c4-90d2-a96a6e3df467	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	16:31:40	0219c17a-13af-461e-a43e-6ed3fadc8f6c	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	16:32:02	7f366587-7dcc-4942-90a3-3b7033c6d03d	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	16:32:45	d047aa23-9d07-40e5-ae38-6c5300c61089	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	16:33:23	ff2f6d3c-666a-4153-a01c-f8b2ae20438e	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	16:34:05	df319fc1-abef-461c-8635-8714d31bedfc	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	16:38:58	47d6546a-b7c7-4df8-8712-9e2d5b3f5ca6	TypeError: Cannot read properties of undefined (reading '0')	POST	/products	http://localhost:3000
+20221108	16:41:26	b83250b1-6439-49ae-8630-4effd11d9c45	TypeError: Cannot read properties of undefined (reading '0')	POST	/products	http://localhost:3000
+20221108	16:42:51	dbbdf25c-5477-4630-a02b-fa2dd9389f38	TypeError: Cannot read properties of undefined (reading '0')	POST	/products	http://localhost:3000
+20221108	16:43:29	9ab0e005-b98d-435c-a06b-0ea22ec2f854	ReferenceError: title is not defined	POST	/products	http://localhost:3000
+20221108	20:08:36	d2ac68f8-f8ad-40fb-a2c5-b99ccbed32c5	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
+20221108	20:09:13	0b24c94c-1297-41a5-a688-67136e3045af	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
