@@ -1,20 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import { useGetUsersQuery } from "./usersApiSlice";
 import { memo } from "react";
 
-const User = ({ userId }) => {
-  const { user } = useGetUsersQuery("usersList", {
-    selectFromResult: ({ data }) => ({
-      user: data?.entities[userId],
-    }),
-  });
-
+const User = ({ user }) => {
   const navigate = useNavigate();
 
   if (user) {
-    const handleEdit = () => navigate(`/dash/users/${userId}`);
+    const handleEdit = () => navigate(`/dash/users/${user._id}`);
 
     const userRolesString = user.roles.toString().replaceAll(",", ", ");
 

@@ -1,23 +1,48 @@
 import { useState, useEffect } from "react";
-import { useUpdateUserMutation, useDeleteUserMutation } from "./usersApiSlice";
+import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSave, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { ROLES } from "../../config/roles";
+import { useMutation, useQueryClient} from "react-query"
+import useAxiosPrivate from "../../hooks/useAxiosPrivate"
 
 const USER_REGEX =
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/;
 
 const EditUserForm = ({ user }) => {
-  const [updateUser, { isLoading, isSuccess, isError, error }] =
-    useUpdateUserMutation();
+  const axiosPrivate = useAxiosPrivate();
+  const { id } = useParams();
+  console.log(user._id)
 
-  const [
-    deleteUser,
-    { isSuccess: isDelSuccess, isError: isDelError, error: delerror },
-  ] = useDeleteUserMutation();
 
+
+ const {mutate: userUpdate, isError: isErrorUpdate, isSuccess: isSuccessUpdate, isLoading:isLoadingUpdate, error: errorUpdate } = useMutation({
+    mutationFn: async (user) => {
+      
+        return await axiosPrivate.post("/users", {...user})
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+ })
+ const {mutate: userDelete, isError: isErrorDel, isSuccess: isSuccessDel, isLoading: isLoadingDel, error: errorDel} = useMutation({
+  
+  mutationFn: async (_id) => {    
+    return await axiosPrivate.delete(`/users`, {data: {id: _id}})
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    
+  }
+ })
   const navigate = useNavigate();
 
   const [email, setEmail] = useState(user.email);
@@ -36,14 +61,14 @@ const EditUserForm = ({ user }) => {
   }, [password]);
 
   useEffect(() => {
-    console.log(isSuccess);
-    if (isSuccess || isDelSuccess) {
+    console.log(isSuccessUpdate);
+    if (isSuccessUpdate || isSuccessDel) {
       setEmail("");
       setPassword("");
       setRoles([]);
       navigate("/dash/users");
     }
-  }, [isSuccess, isDelSuccess, navigate]);
+  }, [isSuccessUpdate, isSuccessDel, navigate]);
 
   const onEmailChanged = (e) => setEmail(e.target.value);
   const onPasswordChanged = (e) => setPassword(e.target.value);
@@ -60,14 +85,15 @@ const EditUserForm = ({ user }) => {
 
   const onSaveUserClicked = async (e) => {
     if (password) {
-      await updateUser({ id: user.id, email, password, roles, active });
+      await userUpdate({ id: user.id, email, password, roles, active });
     } else {
-      await updateUser({ id: user.id, email, roles, active });
+      
+      await userUpdate({ id: user.id, email, roles, active });
     }
   };
 
   const onDeleteUserClicked = async () => {
-    await deleteUser({ id: user.id });
+       await userDelete(user._id);
   };
 
   const options = Object.values(ROLES).map((role) => {
@@ -82,12 +108,12 @@ const EditUserForm = ({ user }) => {
   let canSave;
   if (password) {
     canSave =
-      [roles.length, validEmail, validPassword].every(Boolean) && !isLoading;
+      [roles?.length, validEmail, validPassword].every(Boolean) && !isLoadingUpdate;
   } else {
-    canSave = [roles.length, validEmail].every(Boolean) && !isLoading;
+    canSave = [roles.length, validEmail].every(Boolean) && !isLoadingUpdate;
   }
 
-  const errClass = isError || isDelError ? "errmsg" : "offscreen";
+  const errClass = isErrorUpdate || isErrorDel ? "errmsg" : "offscreen";
   const validUserClass = !validEmail ? "form__input--incomplete" : "";
   const validPwdClass =
     password && !validPassword ? "form__input--incomplete" : "";
@@ -95,7 +121,7 @@ const EditUserForm = ({ user }) => {
     ? "form__input--incomplete"
     : "";
 
-  const errContent = (error?.data?.message || delerror?.data?.message) ?? "";
+  const errContent = (errorUpdate?.data?.message || errorDel?.data?.message) ?? "";
 
   const content = (
     <>

@@ -36,12 +36,13 @@ export const productsApiSlice = apiSlice.injectEndpoints({
             }
         }),
         addNewProduct: builder.mutation({
-            query: initialProduct => ({
+            query: ({...payload}) => ({
                 url: '/products',
                 method: 'POST',
-                body: {
-                    ...initialProduct,
-                }
+                headers: {
+                    'Content-Type': "image/png, image/jpg, image/jpeg"
+                },
+                body: {...payload},
             }),
             invalidatesTags: [
                 { type: 'Product', id: "LIST" }

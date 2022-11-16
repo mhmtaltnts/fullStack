@@ -105,3 +105,71 @@ Require stack:
 20221108	16:43:29	9ab0e005-b98d-435c-a06b-0ea22ec2f854	ReferenceError: title is not defined	POST	/products	http://localhost:3000
 20221108	20:08:36	d2ac68f8-f8ad-40fb-a2c5-b99ccbed32c5	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
 20221108	20:09:13	0b24c94c-1297-41a5-a688-67136e3045af	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
+20221112	18:01:51	14e9bd82-6dac-46c3-814a-12aa7fea3119	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
+20221112	18:04:01	c186c659-eab4-47ed-89b8-66e9d0f3882c	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
+20221112	18:13:01	b4b10d9d-fa02-401d-8d70-fd4d3d9ad1c6	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
+20221112	19:02:14	7e8c1f61-3916-4400-b764-fa2eb8ae326e	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
+20221112	19:39:01	5e54e55b-e89b-4df2-bda7-d256aadf841a	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
+20221112	19:43:03	41ebc83d-5d6f-43aa-8292-a3dc5e6efad9	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
+20221112	19:44:41	3c7d08c4-925a-4efb-8e59-df2e1e0dcad8	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
+20221112	19:45:32	4138619e-d1bf-493d-90c2-0d157c6a1c9d	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
+20221112	21:45:41	2ad1bb32-9100-4154-bda8-664f531fdc91	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
+20221112	21:46:55	58a2bd45-6997-4160-b7f6-45612600c771	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
+20221112	21:47:46	51ae37b3-c671-4b33-817b-4cb5d99a08c1	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
+20221112	21:51:08	c559116e-58df-4350-b163-bd5e991ed871	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
+20221112	21:52:37	7593cd23-6ea5-4a5b-ae13-8f3a2ddca6ed	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
+20221112	21:58:01	01bcac7a-6619-4720-b3a1-898f8e171fab	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
+20221112	22:36:19	3767f9e0-646c-42fc-b20c-7c71a0e7f662	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products/	http://localhost:3000
+20221112	22:37:13	71ce00da-8d92-46e9-af64-7cf41ecd9f11	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products/	http://localhost:3000
+20221112	22:39:32	bdd3afe6-d80c-438b-883f-d1b52d845bfc	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products/	http://localhost:3000
+20221115	12:48:45	86c26ce2-4318-4818-8e94-4a07238064c7	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	undefined
+20221115	12:50:59	f198f7db-331d-4bde-96a3-919907001956	Error: Cannot set headers after they are sent to the client	GET	/users/6360f40f5e9508a32a13ca7a	http://localhost:3000
+20221115	12:50:59	fabff75e-29ef-466e-bd21-a1c4007b12de	Error: Cannot set headers after they are sent to the client	GET	/users/6360f40f5e9508a32a13ca7a	http://localhost:3000
+20221115	12:50:59	e08ccbee-f2d0-4f5a-8dd1-478f1c553b0c	Error: Cannot set headers after they are sent to the client	GET	/users/6360f40f5e9508a32a13ca7a	http://localhost:3000
+20221115	12:50:59	0f54e4ce-fcd8-4927-b3d0-8830264845af	Error: Cannot set headers after they are sent to the client	GET	/users/6360f40f5e9508a32a13ca7a	http://localhost:3000
+20221115	12:51:00	e93ad24a-9fdd-426c-b5c3-3687c362c8c2	Error: Cannot set headers after they are sent to the client	GET	/users/6360f40f5e9508a32a13ca7a	http://localhost:3000
+20221115	12:51:00	80f8c00a-0f83-4ff3-9fcc-a29600736dbd	Error: Cannot set headers after they are sent to the client	GET	/users/6360f40f5e9508a32a13ca7a	http://localhost:3000
+20221115	12:51:02	5065f735-61e6-41ec-9606-dcb800d4f2dd	Error: Cannot set headers after they are sent to the client	GET	/users/6360f40f5e9508a32a13ca7a	http://localhost:3000
+20221115	12:51:02	8c6b625a-1278-499b-b290-5561e282ef1d	Error: Cannot set headers after they are sent to the client	GET	/users/6360f40f5e9508a32a13ca7a	http://localhost:3000
+20221115	12:51:06	e912b1d5-92f4-486e-93b9-4c1b9b5306b9	Error: Cannot set headers after they are sent to the client	GET	/users/6360f40f5e9508a32a13ca7a	http://localhost:3000
+20221115	12:51:06	3b828d5f-7e52-42b7-9b28-e2b720b7a69b	Error: Cannot set headers after they are sent to the client	GET	/users/6360f40f5e9508a32a13ca7a	http://localhost:3000
+20221115	12:51:07	f027df67-c3c8-4173-882d-2c22919ac8a3	Error: Cannot set headers after they are sent to the client	GET	/users/6360f40f5e9508a32a13ca7a	http://localhost:3000
+20221115	12:51:07	cecc706a-f325-4bfc-a725-c75c7b27e16b	Error: Cannot set headers after they are sent to the client	GET	/users/6360f40f5e9508a32a13ca7a	http://localhost:3000
+20221115	12:55:07	ad74c6b0-44cc-459a-99a8-83271b8af10f	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	http://localhost:3000
+20221115	12:55:07	751ceb72-2f7b-4847-8eed-85ec7a33a9b1	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	http://localhost:3000
+20221115	12:55:07	489ed7de-2d84-49a4-a9a5-61c2b71b731c	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	http://localhost:3000
+20221115	12:55:07	259d97cd-f09b-4236-829a-fa4b2183bbd3	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	http://localhost:3000
+20221115	12:55:08	338a4447-2104-4538-8c41-80d975073f63	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	http://localhost:3000
+20221115	12:55:08	deaed3e1-f4ee-444f-a2de-d40c33cbf751	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	http://localhost:3000
+20221115	12:55:10	a541b6f1-1c43-44b7-82a1-426d089899d8	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	http://localhost:3000
+20221115	12:55:10	3bc81604-0de4-4203-bece-3fe4fa94634a	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	http://localhost:3000
+20221115	12:57:10	3af4eced-b153-4892-8263-e849989dc78c	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	http://localhost:3000
+20221115	12:57:10	de374f54-e2b2-41ef-a505-e7e5e7ad5b00	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	http://localhost:3000
+20221115	12:57:10	889b10c5-f66c-4ad9-b03f-effec8aa9b68	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	http://localhost:3000
+20221115	12:57:10	8025adb8-dc17-4f9f-9655-bddb8d3ce941	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	http://localhost:3000
+20221115	12:57:41	ca3a0455-a1c1-4f5a-92ea-36c8d5b66ed8	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	http://localhost:3000
+20221115	12:57:41	9eb7376b-62a1-4858-99a4-d2d8b11ebd43	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	http://localhost:3000
+20221115	12:57:41	2932540b-49a8-452e-b4f6-7abc0ffc3a59	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	http://localhost:3000
+20221115	12:57:41	4c029f8a-0558-488b-acb7-f068ddba4199	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	http://localhost:3000
+20221115	12:57:42	f6ef031a-98b9-4efa-9eaa-05a8c8b1ba0b	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	http://localhost:3000
+20221115	12:57:42	31f2c395-a12b-4af6-970e-b1088070a372	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	http://localhost:3000
+20221115	12:57:44	e8958be7-610b-4092-9cfd-6afbc8ecc7eb	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	http://localhost:3000
+20221115	12:57:44	70566a92-90b3-4e78-a5b5-b15e95e9c501	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	http://localhost:3000
+20221115	12:57:48	ec93af36-111b-4695-b93a-4cb5c66507b3	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	http://localhost:3000
+20221115	12:57:48	c0e7ebec-0592-4cd8-971d-924a61f1c35d	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	http://localhost:3000
+20221115	12:57:48	13ec3a51-adcb-4e61-affa-2660114d9f61	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	http://localhost:3000
+20221115	12:57:48	cb0e655c-413e-489c-acc9-b1ab89db5243	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	http://localhost:3000
+20221115	12:57:54	785347ef-9912-4f4a-822e-6376f5d5fd90	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	undefined
+20221115	12:57:58	11290315-9d7f-4506-af13-51b635c50aa6	Error: Cannot set headers after they are sent to the client	GET	/users/6360c0fbcca6afc20203d133	undefined
+20221115	13:12:55	d7e5d848-c4c7-4d51-89b2-2e7277e4a69e	Error: Cannot set headers after they are sent to the client	GET	/users/63614843631ed34b729bfb64	undefined
+20221115	13:13:40	ef12b041-f70c-46a1-8ab6-6ccbfcd210c9	Error: Cannot set headers after they are sent to the client	GET	/users/63614843631ed34b729bfb64	undefined
+20221115	13:14:33	3286a88f-704b-452f-96f4-e14a07ed38fe	Error: Cannot set headers after they are sent to the client	GET	/users/63614843631ed34b729bfb64	undefined
+20221115	13:17:44	39b572e0-3f19-4c63-af74-d44d00f557d8	Error: Cannot set headers after they are sent to the client	GET	/users/63614843631ed34b729bfb64	undefined
+20221115	13:21:19	567d80ab-f84a-43a8-b5c7-e7ba348ab8b6	Error: Cannot set headers after they are sent to the client	GET	/users/63614843631ed34b729bfb64	undefined
+20221115	13:21:49	4a8cce3f-2ffc-41e3-ba66-bdec629c744e	Error: Cannot set headers after they are sent to the client	GET	/users/63614843631ed34b729bfb64	undefined
+20221115	16:10:37	450959f1-8376-4729-91b9-1c0a745a4202	CastError: Cast to ObjectId failed for value ":[object Object]" (type string) at path "_id" for model "User"	DELETE	/users/:[object%20Object]	http://localhost:3000
+20221115	16:11:32	b8905de5-7789-449e-b2c4-e60ccac7bbf4	CastError: Cast to ObjectId failed for value ":[object Object]" (type string) at path "_id" for model "User"	DELETE	/users/:[object%20Object]	http://localhost:3000
+20221115	16:20:36	8f67b5a4-8a87-42b5-afc2-f3fba1d4306a	CastError: Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "User"	DELETE	/users/:undefined	http://localhost:3000
+20221115	16:21:32	3fba0a6e-2818-4b44-b067-968dcc752da3	CastError: Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "User"	DELETE	/users/:undefined	http://localhost:3000
+20221115	16:22:56	41e97200-5752-4ff9-9676-a97204bc5991	CastError: Cast to ObjectId failed for value ":636ff786071d778ab199ec6f" (type string) at path "_id" for model "User"	DELETE	/users/:636ff786071d778ab199ec6f	http://localhost:3000
+20221115	16:57:32	1ac0d26e-488a-43b9-87cf-dc504da15d52	SyntaxError: Unexpected token " in JSON at position 0	DELETE	/users	http://localhost:3000

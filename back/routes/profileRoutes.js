@@ -6,11 +6,7 @@ const verifyJWT = require("../middleware/verifyJWT");
 router.use(verifyJWT);
 
 
-router  
-  .route("/").get(usersController.getAllUsers)  
-  .post(usersController.createNewUser)
-  .patch(usersController.updateUser)
-  .delete(usersController.deleteUser);
-
+router.route('/:id').get(usersController.getUserById)
+router.route('/:id').delete(usersController.deleteUserById)
 
 module.exports = router;

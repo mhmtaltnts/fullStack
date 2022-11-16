@@ -1,21 +1,34 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import {useQuery, useMutation, useQueryClient} from "react-query"
-import { addProduct, getProducts } from "../../app/api/productsApi"
+import { useQueryClient } from "react-query"
+//import { addProduct} from "../../app/api/productsApi"
 //import { useAddNewProductMutation } from "./productsApiSlice"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSave } from "@fortawesome/free-solid-svg-icons"
+import useProductApi from "./useProductsApi"
 //import axios from "axios"
-//import ImageUploading from 'react-images-uploading';
+
 
 const NewProductForm = ({ userId }) => {
+    
+    const [addNewProductMutation] = useProductApi()
+    const queryClient = useQueryClient()
 
-    /* const [addNewProduct, {
-        isLoading,
-        isSuccess,
-        isError,
-        error
-    }] = useAddNewProductMutation() */
+     addNewProductMutation({
+        onSuccess: () => {
+            // Invalidates cache and refetch 
+            queryClient.invalidateQueries("products")
+            setTitle('')
+            setDesc('')
+            setFiles()
+            setCategory("")
+            setPrice(0)
+            setTax(0)
+            setStockCount(0)
+            navigate('/dash/products')
+
+        }
+    })
 
     const navigate = useNavigate()
 
@@ -26,40 +39,6 @@ const NewProductForm = ({ userId }) => {
     const [tax, setTax] = useState(0)
     const [stockCount, setStockCount] = useState(0)
     const [files, setFiles] = useState([]);
-
-    const queryClient = useQueryClient()
-
-    const {
-        isLoading, 
-        isError,
-        error,
-        data: products
-    } = useQuery("products", getProducts, {
-        select: data => data.sort((a,b) => b.id - a.id)
-    })
-
-    const {isSuccess, mutate}
-         = useMutation(addProduct, {
-        onSuccess: () => {
-            queryClient.invalidateQueries("products");
-        
-        } 
-    })
-    
-
-    
-    useEffect(() => {
-        if (isSuccess) {
-            setTitle('')
-            setDesc('')
-            setFiles()
-            setCategory("")
-            setPrice(0)
-            setTax(0)
-            setStockCount(0)
-            navigate('/dash/products')
-        }
-    }, [isSuccess, navigate])
 
     const onTitleChanged = e => setTitle(e.target.value)
     const onDescChanged = e => setDesc(e.target.value)
@@ -76,7 +55,7 @@ const NewProductForm = ({ userId }) => {
         }        
         setFiles(files) };
     
-    const canSave = [title, desc, tax, price, files, category, stockCount].every(Boolean) && !isLoading
+    const canSave = [title, desc, tax, price, files, category, stockCount].every(Boolean) && !addNewProductMutation.isLoading
 
     const onSaveProductClicked = async (e) => {
         e.preventDefault()
@@ -94,21 +73,21 @@ const NewProductForm = ({ userId }) => {
         
         if (canSave) {
             //await addNewProduct(data)
-            await mutate(data)
-            /* axios.post("http://localhost:9999/products", data).then(res => console.log(res)).catch(err => console.log(err)) */
+            addNewProductMutation(data)
+            //axios.post("http://localhost:9999/products", data).then(res => console.log(res)).catch(err => console.log(err))
 
         }
         console.log(data)
     }
 
 
-    const errClass = isError ? "errmsg" : "offscreen"
+    const errClass = addNewProductMutation.isError ? "errmsg" : "offscreen"
     const validTitleClass = !title ? "form__input--incomplete" : ''
     const validDescClass = !desc ? "form__input--incomplete" : ''
 
     const content = (
         <>
-            <p className={errClass}>{error?.data?.message}</p>
+            <p className={errClass}>{addNewProductMutation.error?.data?.message}</p>
 
             <form className="form" onSubmit={onSaveProductClicked} >
                 <div className="form__title-row">

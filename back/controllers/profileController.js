@@ -2,20 +2,6 @@ const User = require("../models/User");
 const Order = require("../models/Order");
 const bcrypt = require("bcrypt");
 
-// @desc Get all users
-// @route GET /users
-// @access Private
-const getAllUsers = async (req, res) => {
-  // Get all users from MongoDB
-  const users = await User.find().select("-password").lean();
-
-  // If no users
-  if (!users?.length) {
-    return res.status(400).json({ message: "No users found" });
-  }
-
-  res.status(200).json(users);
-};
 
 // @desc Get all users
 // @route GET /users
@@ -38,59 +24,17 @@ console.log(user)
   res.status(200).json(user);
 };
 
-// @desc Create new user
-// @route POST /users
-// @access Private
-const createNewUser = async (req, res) => {
-  const { email, password, roles } = req.body;
-
-  // Confirm data
-  if (!email || !password) {
-    return res.status(400).json({ message: "All fields are required" });
-  }
-
-  // Check for duplicate username
-  const duplicate = await User.findOne({ email })
-    .collation({ locale: "en", strength: 2 })
-    .lean()
-    .exec();
-
-  if (duplicate) {
-    return res.status(409).json({ message: "Duplicate username" });
-  }
-
-  // Hash password
-  const hashedPwd = await bcrypt.hash(password, 10); // salt rounds
-
-  const userObject =
-    !Array.isArray(roles) || !roles.length
-      ? { email, password: hashedPwd }
-      : { email, password: hashedPwd, roles };
-
-  // Create and store new user
-  const user = await User.create(userObject);
-
-  if (user) {
-    //created
-    res.status(201).json({ message: `New user with ${email} created` });
-  } else {
-    res.status(400).json({ message: "Invalid user data received" });
-  }
-};
 
 // @desc Update a user
 // @route PATCH /users
 // @access Private
 const updateUser = async (req, res) => {
-  const { id, email, roles, active, password } = req.body;
+  const { id, email, password } = req.body;
 
   // Confirm data
   if (
     !id ||
-    !email ||
-    !Array.isArray(roles) ||
-    !roles.length ||
-    typeof active !== "boolean"
+    !email
   ) {
     return res
       .status(400)
@@ -160,40 +104,10 @@ const deleteUser = async (req, res) => {
 
   res.json(reply);
 };
-const deleteUserById = async (req, res) => {
-  const { id } = req.params;
-  console.log(id)
-  
-  // Confirm data
-  if (!id) {
-    return res.status(400).json({ message: "User ID Required" });
-  }
 
-  // Does the user still have assigned orderss?
-  const order = await Order.findOne({ user: id }).lean().exec();
-  if (order) {
-    return res.status(400).json({ message: "User has assigned orders" });
-  }
-
-  // Does the user exist to delete?
-  const user = await User.findById(id).exec();
-
-  if (!user) {
-    return res.status(400).json({ message: "User not found" });
-  }
-
-  const result = await user.deleteOne();
-
-  const reply = `User with email: ${result.email} and ID: ${result._id} deleted`;
-
-  res.json(reply);
-};
 
 module.exports = {
-  getAllUsers,
   getUserById,
-  createNewUser,
   updateUser,
-  deleteUser,
   deleteUserById,
 };

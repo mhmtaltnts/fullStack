@@ -130,14 +130,14 @@ const DashHeader = () => {
             <p className={errClass}>{error?.data?.message}</p>
 
             <header className="dash-header">
-                    <Navbar/>
+                    {/* <Navbar/> */}
                 <div className={`dash-header__container ${dashClass}`}>
-                    {/* <Link to="/dash">
+                    <Link to="/dash">
                         <h1 className="dash-header__title">techProducts</h1>
-                    </Link> */}
-                    {/* <nav className="dash-header__nav">
+                    </Link>
+                    <nav className="dash-header__nav">
                         {buttonContent}
-                    </nav> */}
+                    </nav>
                 </div>
             </header>
         </>

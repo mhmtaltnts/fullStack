@@ -1,22 +1,23 @@
-import { useGetUsersQuery } from "./usersApiSlice";
 import User from "./User";
 import useTitle from "../../hooks/useTitle";
 import PulseLoader from "react-spinners/PulseLoader";
+import useUserApi from "./useUsersApi";
 
 const UsersList = () => {
   useTitle("techNotes: Users List");
-
-  const {
-    data: users,
-    isLoading,
-    isSuccess,
-    isError,
-    error,
-  } = useGetUsersQuery("usersList", {
-    pollingInterval: 60000,
-    refetchOnFocus: true,
-    refetchOnMountOrArgChange: true,
-  });
+  //const axiosPrivate = useAxiosPrivate();
+  /* const getUsers = async () => {
+    const response = await axiosPrivate.get('/users')
+    return response.data
+} */
+const [getUserQuery] = useUserApi()
+const {
+  isSuccess,
+  isLoading,
+  isError,
+  error,
+  data: users
+} = getUserQuery
 
   let content;
 
@@ -27,10 +28,8 @@ const UsersList = () => {
   }
 
   if (isSuccess) {
-    const { ids } = users;
-
-    const tableContent =
-      ids?.length && ids.map((userId) => <User key={userId} userId={userId} />);
+     const tableContent =
+      users?.length && users.map((user) => <User key={user._id} user={user} />);
 
     content = (
       <table className='table table--users'>

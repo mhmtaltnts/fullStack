@@ -2,13 +2,18 @@ import { useRef, useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { setCredentials } from './authSlice'
-import { useLoginMutation } from './authApiSlice'
+//import { useLoginMutation } from './authApiSlice'
 import usePersist from '../../hooks/usePersist'
 import useTitle from '../../hooks/useTitle'
-import PulseLoader from 'react-spinners/PulseLoader'
+//import PulseLoader from 'react-spinners/PulseLoader'
+import axios from "../../app/api/axios"
+
+const LOGIN_URL = '/auth';
 
 const Login = () => {
     useTitle('Employee Login')
+    
+
 
     const userRef = useRef()
     const errRef = useRef()
@@ -20,7 +25,7 @@ const Login = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    const [login, { isLoading }] = useLoginMutation()
+   //const [login, { isLoading }] = useLoginMutation()
 
     useEffect(() => {
         userRef.current.focus()
@@ -34,7 +39,9 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const { accessToken } = await login({ email, password }).unwrap()
+            const response = await axios.post(LOGIN_URL, JSON.stringify({ email, password }))
+            const accessToken = response?.data?.accessToken;
+            console.log(accessToken)
             dispatch(setCredentials({ accessToken }))
             setEmail('')
             setPassword('')
@@ -59,10 +66,13 @@ const Login = () => {
 
     const errClass = errMsg ? "errmsg" : "offscreen"
 
-    if (isLoading) return <PulseLoader color={"#FFF"} />
+    //if (isLoading) return <PulseLoader color={"#FFF"} />
 
-    const content = (     
-            
+    const content = (
+        <section className="public">
+            <header>
+                <h1>Employee Login</h1>
+            </header>
             <main className="login">
                 <p ref={errRef} className={errClass} aria-live="assertive">{errMsg}</p>
 
@@ -70,7 +80,7 @@ const Login = () => {
                     <label htmlFor="email">Email:</label>
                     <input
                         className="form__input"
-                        type="email"
+                        type="text"
                         id="email"
                         ref={userRef}
                         value={email}
@@ -103,18 +113,12 @@ const Login = () => {
                     </label>
                 </form>
             </main>
-            
-        
-    )
-
-    return (<section className="public">
-        <header>
-                <h1>Employee Login</h1>
-            </header>
-        {content}
-        <footer>
+            <footer>
                 <Link to="/">Back to Home</Link>
             </footer>
-    </section>)
+        </section>
+    )
+
+    return content
 }
 export default Login

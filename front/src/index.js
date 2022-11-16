@@ -5,8 +5,9 @@ import App from "./App";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { store } from "./app/store";
 import { Provider } from "react-redux";
-import {QueryClientProvider, QueryClient} from "react-query"
-import {ReactQueryDevtools} from "react-query/devtools"
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
+
 
 const queryClient = new QueryClient()
 
@@ -17,16 +18,17 @@ const queryClient = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>         
+    <Provider store={store}> 
+    <QueryClientProvider client={queryClient}>        
       <BrowserRouter>
-      <QueryClientProvider client = {queryClient}>
+      
         <Routes>
           <Route path='/*' element={<App />} />
         </Routes>
-        <ReactQueryDevtools initialIsOpen/>
-      </QueryClientProvider>
+  
+        <ReactQueryDevtools initialIsOpen />
       </BrowserRouter>     
-
+      </QueryClientProvider>
     </Provider>
   </React.StrictMode>
 );
