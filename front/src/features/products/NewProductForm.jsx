@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import {useQuery, useMutation, useQueryClient} from "react-query"
-import { addProduct, getProducts } from "../../app/api/productsApi"
-//import { useAddNewProductMutation } from "./productsApiSlice"
+//import {useQuery, useMutation, useQueryClient} from "react-query"
+//import { addProduct, getProducts } from "../../app/api/productsApi"
+import { useAddNewProductMutation } from "./productsApiSlice"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSave } from "@fortawesome/free-solid-svg-icons"
 //import axios from "axios"
@@ -10,12 +10,12 @@ import { faSave } from "@fortawesome/free-solid-svg-icons"
 
 const NewProductForm = ({ userId }) => {
 
-    /* const [addNewProduct, {
+    const [addNewProduct, {
         isLoading,
         isSuccess,
         isError,
         error
-    }] = useAddNewProductMutation() */
+    }] = useAddNewProductMutation()
 
     const navigate = useNavigate()
 
@@ -27,24 +27,6 @@ const NewProductForm = ({ userId }) => {
     const [stockCount, setStockCount] = useState(0)
     const [files, setFiles] = useState([]);
 
-    const queryClient = useQueryClient()
-
-    const {
-        isLoading, 
-        isError,
-        error,
-        data: products
-    } = useQuery("products", getProducts, {
-        select: data => data.sort((a,b) => b.id - a.id)
-    })
-
-    const {isSuccess, mutate}
-         = useMutation(addProduct, {
-        onSuccess: () => {
-            queryClient.invalidateQueries("products");
-        
-        } 
-    })
     
 
     
@@ -93,8 +75,9 @@ const NewProductForm = ({ userId }) => {
         }
         
         if (canSave) {
-            //await addNewProduct(data)
-            await mutate(data)
+            await addNewProduct(data)
+            console.log(data)
+           // await mutate(data)
             /* axios.post("http://localhost:9999/products", data).then(res => console.log(res)).catch(err => console.log(err)) */
 
         }

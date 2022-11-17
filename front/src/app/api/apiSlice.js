@@ -1,7 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { setCredentials } from "../../features/auth/authSlice";
-/* import {store} from "../store"
-import axios from "axios" */
 
 const baseQuery = fetchBaseQuery({
   baseUrl: "http://localhost:9999",
@@ -15,16 +13,6 @@ const baseQuery = fetchBaseQuery({
     return headers;
   },
 });
-
-/* const token = store.getState()?.auth?.token;
-const baseQuery = axios.create({
-  baseUrl: "http://localhost:9999",
-  credentials: "include",
-  headers: {
-    Authorization: 'Bearer ' + token
-  }
-}); */
-
 
 const baseQueryWithReauth = async (args, api, extraOptions) => {
   // console.log(args) // request url, method, body
@@ -59,6 +47,36 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
 
 export const apiSlice = createApi({
   baseQuery: baseQueryWithReauth,
-  tagTypes: ["User", "Product"],
+  tagTypes: ["Products", "User"],
   endpoints: (builder) => ({}),
 });
+
+/* const client = axios.create({
+  baseURL: "http://localhost:9999"
+})
+
+
+
+const request = async ({...options}, api, extraOptions) => {
+
+  const token = api.getState().auth.token;
+  
+  client.defaults.headers.common.Authorization = `Bearer ${token}`
+  
+  const onSuccess = response => { return response
+  }   
+ 
+  const onError = async (error) => {    
+        return error;
+  } 
+
+
+  return client(options).then(onSuccess).catch(onError)
+}  
+
+
+export const apiSlice = createApi({
+  baseQuery: request,
+  tagTypes: ["User", "Product"],
+  endpoints: (builder) => ({}),
+});*/

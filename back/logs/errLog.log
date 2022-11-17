@@ -105,3 +105,14 @@ Require stack:
 20221108	16:43:29	9ab0e005-b98d-435c-a06b-0ea22ec2f854	ReferenceError: title is not defined	POST	/products	http://localhost:3000
 20221108	20:08:36	d2ac68f8-f8ad-40fb-a2c5-b99ccbed32c5	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
 20221108	20:09:13	0b24c94c-1297-41a5-a688-67136e3045af	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
+20221116	10:15:54	4d2da55a-2a8b-43fe-b6ca-80dbe02db3bc	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
+20221116	10:36:56	0202c930-1b6f-4748-92c4-2ab1f3ebe566	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
+20221116	11:05:44	1baed435-d697-4399-bcce-8879640177f3	Error: Multipart: Boundary not found	POST	/products	http://localhost:3000
+20221116	11:10:40	90b9fb8d-6a91-497e-8b3d-fce5bb4cc21a	Error: Multipart: Boundary not found	POST	/products	http://localhost:3000
+20221116	11:11:36	1a600b7d-4e51-4c84-8478-c1586bb23064	Error: Multipart: Boundary not found	POST	/products	http://localhost:3000
+20221116	16:46:03	9fa6eaa6-d3b9-4dc5-a88e-2cf786fa447e	Error: Multipart: Boundary not found	POST	/products	http://localhost:3000
+20221116	16:51:25	d0078c0d-57a6-49b2-a8f0-4dec790a9e80	Error: Multipart: Boundary not found	POST	/products	http://localhost:3000
+20221116	16:52:04	986fc133-66a7-42f8-8ea7-5cf33b04c61f	Error: Multipart: Boundary not found	POST	/products	http://localhost:3000
+20221116	16:52:59	f3894128-b52b-425d-82ab-ffc0c5f18fe6	Error: Multipart: Boundary not found	POST	/products	http://localhost:3000
+20221116	16:54:45	0642db56-2645-42e6-a137-7468ce44c89a	Error: Multipart: Boundary not found	POST	/products	http://localhost:3000
+20221116	23:14:08	caf35a14-940e-4e1c-a624-5f46dcba3aea	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000

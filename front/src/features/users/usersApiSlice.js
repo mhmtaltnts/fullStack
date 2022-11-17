@@ -33,7 +33,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
     addNewUser: builder.mutation({
       query: (initialUserData) => ({
         url: "/users",
-        method: "POST",
+        method: "post",
         body: {
           ...initialUserData,
         },
@@ -43,7 +43,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
     updateUser: builder.mutation({
       query: (initialUserData) => ({
         url: "/users",
-        method: "PATCH",
+        method: "patch",
         body: {
           ...initialUserData,
         },
@@ -53,7 +53,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
     deleteUser: builder.mutation({
       query: ({ id }) => ({
         url: `/users`,
-        method: "DELETE",
+        method: "delete",
         body: { id },
       }),
       invalidatesTags: (result, error, arg) => [{ type: "User", id: arg.id }],
