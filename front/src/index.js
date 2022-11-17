@@ -20,12 +20,10 @@ root.render(
   <React.StrictMode>
     <Provider store={store}> 
     <QueryClientProvider client={queryClient}>        
-      <BrowserRouter>
-      
+      <BrowserRouter>      
         <Routes>
           <Route path='/*' element={<App />} />
-        </Routes>
-  
+        </Routes>  
         <ReactQueryDevtools initialIsOpen />
       </BrowserRouter>     
       </QueryClientProvider>

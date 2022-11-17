@@ -1,13 +1,14 @@
 import Product from "./Product"
 import useTitle from "../../hooks/useTitle"
 import PulseLoader from 'react-spinners/PulseLoader'
-import useProducts  from "./useProductsApi"
+import { useQuery} from "react-query"
+import {getProducts}  from "./useProductsApi"
+
+
 
 
 const ProductsList = () => {
     useTitle('techProducts: Products List')
-
-    const [getProductQuery] = useProducts()
 
     const {
         isSuccess,
@@ -15,7 +16,7 @@ const ProductsList = () => {
         isError,
         error,
         data: products
-    } = getProductQuery
+    } = useQuery("products", getProducts)
     
     
     let content

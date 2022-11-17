@@ -1,20 +1,28 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { useQueryClient } from "react-query"
+import { useQueryClient, useMutation } from "react-query"
 //import { addProduct} from "../../app/api/productsApi"
-//import { useAddNewProductMutation } from "./productsApiSlice"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSave } from "@fortawesome/free-solid-svg-icons"
-import useProductApi from "./useProductsApi"
+//import useProductApi from "./useProductsApi"
+import {addProduct} from "./useProductsApi"
 //import axios from "axios"
 
 
 const NewProductForm = ({ userId }) => {
-    
-    const [addNewProductMutation] = useProductApi()
-    const queryClient = useQueryClient()
+    const [title, setTitle] = useState('')
+    const [desc, setDesc] = useState('')
+    const [category, setCategory] = useState('')
+    const [price, setPrice] = useState(0)
+    const [tax, setTax] = useState(0)
+    const [stockCount, setStockCount] = useState(0)
+    const [files, setFiles] = useState([]);
 
-     addNewProductMutation({
+    const navigate = useNavigate()
+    const queryClient = useQueryClient()
+    
+    
+    const {mutate, isError, isLoading, error} = useMutation(addProduct, {
         onSuccess: () => {
             // Invalidates cache and refetch 
             queryClient.invalidateQueries("products")
@@ -26,19 +34,10 @@ const NewProductForm = ({ userId }) => {
             setTax(0)
             setStockCount(0)
             navigate('/dash/products')
-
         }
     })
-
-    const navigate = useNavigate()
-
-    const [title, setTitle] = useState('')
-    const [desc, setDesc] = useState('')
-    const [category, setCategory] = useState('')
-    const [price, setPrice] = useState(0)
-    const [tax, setTax] = useState(0)
-    const [stockCount, setStockCount] = useState(0)
-    const [files, setFiles] = useState([]);
+    
+    
 
     const onTitleChanged = e => setTitle(e.target.value)
     const onDescChanged = e => setDesc(e.target.value)
@@ -55,7 +54,7 @@ const NewProductForm = ({ userId }) => {
         }        
         setFiles(files) };
     
-    const canSave = [title, desc, tax, price, files, category, stockCount].every(Boolean) && !addNewProductMutation.isLoading
+    const canSave = [title, desc, tax, price, files, category, stockCount].every(Boolean) && !isLoading
 
     const onSaveProductClicked = async (e) => {
         e.preventDefault()
@@ -73,7 +72,7 @@ const NewProductForm = ({ userId }) => {
         
         if (canSave) {
             //await addNewProduct(data)
-            addNewProductMutation(data)
+            mutate(data)
             //axios.post("http://localhost:9999/products", data).then(res => console.log(res)).catch(err => console.log(err))
 
         }
@@ -81,13 +80,13 @@ const NewProductForm = ({ userId }) => {
     }
 
 
-    const errClass = addNewProductMutation.isError ? "errmsg" : "offscreen"
+    const errClass = isError ? "errmsg" : "offscreen"
     const validTitleClass = !title ? "form__input--incomplete" : ''
     const validDescClass = !desc ? "form__input--incomplete" : ''
 
     const content = (
         <>
-            <p className={errClass}>{addNewProductMutation.error?.data?.message}</p>
+            <p className={errClass}>{error?.data?.message}</p>
 
             <form className="form" onSubmit={onSaveProductClicked} >
                 <div className="form__title-row">
