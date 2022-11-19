@@ -5,28 +5,19 @@ import PulseLoader from "react-spinners/PulseLoader";
 import useTitle from "../../hooks/useTitle";
 //import useUsersApi from"./useUsersApi"
 import { useQuery} from "react-query"
-import useAxiosPrivate from "../../hooks/useAxiosPrivate"
+import useUserApi from "./useUsersApi";
+
 
 const EditUser = () => {
   useTitle("techNotes: Edit User");
-  const axiosPrivate = useAxiosPrivate();
-
   
+  const {getUserById} = useUserApi()  
 
   const { id } = useParams();
-  
-  const getUserById = async (id) => {
-    return await axiosPrivate.get(`/users/${id}`)
-}
 
-
-  const {data: user, isLoading, status} = useQuery ({queryKey: ["user", id], 
-  
-        queryFn: async () => {
-           const response=  await getUserById(id)
-            return response.data
-          }  
-      }      
+  const {data: user, isLoading, status} = useQuery ({queryKey: ["user", id],   
+        queryFn:getUserById 
+      } 
         )
        console.log(user)
        console.log(status)

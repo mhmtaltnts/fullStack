@@ -27,7 +27,8 @@ const getUserById = async (req, res) => {
 
   // Get all users from MongoDB
   const user = await User.findById(id).exec();
-console.log(user)
+
+  console.log(user)
 //res.setHeader('Content-Type', 'application/json')
   // If no users
   if (!user) {

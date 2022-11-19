@@ -5,53 +5,29 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSave, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { ROLES } from "../../config/roles";
 import { useMutation, useQueryClient} from "react-query"
-import useAxiosPrivate from "../../hooks/useAxiosPrivate"
+import useUserApi from "./useUsersApi";
 
 const USER_REGEX =
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/;
 
 const EditUserForm = ({ user }) => {
-  const axiosPrivate = useAxiosPrivate();
-  const { id } = useParams();
-  console.log(user._id)
-
-
-
- const {mutate: userUpdate, isError: isErrorUpdate, isSuccess: isSuccessUpdate, isLoading:isLoadingUpdate, error: errorUpdate } = useMutation({
-    mutationFn: async (user) => {
-      
-        return await axiosPrivate.post("/users", {...user})
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    }
- })
- const {mutate: userDelete, isError: isErrorDel, isSuccess: isSuccessDel, isLoading: isLoadingDel, error: errorDel} = useMutation({
   
-  mutationFn: async (_id) => {    
-    return await axiosPrivate.delete(`/users`, {data: {id: _id}})
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    
-  }
- })
-  const navigate = useNavigate();
-
   const [email, setEmail] = useState(user.email);
   const [validEmail, setValidEmail] = useState(false);
   const [password, setPassword] = useState("");
   const [validPassword, setValidPassword] = useState(false);
   const [roles, setRoles] = useState(user.roles);
   const [active, setActive] = useState(user.active);
+  
+  const { updateUser, deleteUser } = useUserApi()
 
+ const navigate = useNavigate();
+  
+  const {mutate, isError: isErrorUpdate, isSuccess: isSuccessUpdate, isLoading:isLoadingUpdate, error: errorUpdate } = useMutation(updateUser)
+  
+  const {mutate: delUser, isError: isErrorDel, isSuccess: isSuccessDel, error: errorDel} = useMutation({mutationFn:deleteUser})
+ 
   useEffect(() => {
     setValidEmail(USER_REGEX.test(email));
   }, [email]);
@@ -85,15 +61,15 @@ const EditUserForm = ({ user }) => {
 
   const onSaveUserClicked = async (e) => {
     if (password) {
-      await userUpdate({ id: user.id, email, password, roles, active });
+     await mutate({ id: user._id, email, password, roles, active });
     } else {
       
-      await userUpdate({ id: user.id, email, roles, active });
+     await mutate({ id: user._id, email, roles, active });
     }
   };
 
   const onDeleteUserClicked = async () => {
-       await userDelete(user._id);
+      await delUser(user._id);
   };
 
   const options = Object.values(ROLES).map((role) => {

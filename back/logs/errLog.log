@@ -263,3 +263,31 @@ Require stack:
 20221117	14:02:49	85a631b1-577d-47ff-ba25-a6a9b0f62b2f	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
 20221117	14:08:07	b06abf04-ebce-4ec2-8098-dc529e07777f	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
 20221117	14:08:58	505b9508-f5db-48a1-9bc2-30293df8a597	TypeError: Cannot read properties of undefined (reading 'length')	POST	/products	http://localhost:3000
+20221117	19:00:14	76321c1e-ca63-4f09-b554-cbfd172e9d07	SyntaxError: Unexpected token " in JSON at position 0	DELETE	/users	http://localhost:3000
+20221117	19:05:32	8c33b9ab-63f4-432e-8aef-cada5fa0c55e	SyntaxError: Unexpected token " in JSON at position 0	DELETE	/users	http://localhost:3000
+20221117	19:17:39	1147d267-9d60-4d10-8d1f-6865c7eaf5b3	SyntaxError: Unexpected token " in JSON at position 0	DELETE	/users	http://localhost:3000
+20221117	19:21:33	9598456f-a980-407d-85fb-651008e8053d	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221117	19:32:38	f1d4389d-11f9-4313-835c-d13dd69870ea	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221117	19:34:14	96c4e417-3a8a-4d55-a750-918e530c2c6f	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221117	19:36:07	d0f28d5c-701e-4476-91fa-8dd7166dbae7	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221117	19:37:04	bc1f48ec-f2ae-437c-912b-32155fceed66	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221117	19:41:05	38f6ad3f-b0e3-4ee7-9741-0916a2c98f87	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221117	19:42:58	b0859e9b-221f-4e84-bae5-1cd4e852a657	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221117	19:44:57	14b6afeb-b79e-4df7-bcc4-a205ac48c8c3	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221117	19:45:57	533ceec8-9a00-4098-b2c0-ab8d68d4d352	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221117	19:46:45	0ac90084-9aca-43f7-8dd5-09398b5d0b06	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221117	19:46:46	a176cff3-086a-4171-b755-8ddd7fb95291	SyntaxError: Unexpected token " in JSON at position 0	DELETE	/users	http://localhost:3000
+20221117	19:47:31	8dc8de78-b432-4274-8add-789db31fbe2a	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221117	19:48:53	6f3ca66a-6cdb-44b9-bc5c-8831fae78ffc	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221117	19:50:02	b87d9455-c9b1-47a1-b9a1-ff25ffad7f07	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221117	19:50:42	96060d2d-14b3-4c01-8281-6bcc754f3e27	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221117	19:52:20	b873be24-cc28-43b3-9077-1c5685782fb1	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221117	19:53:58	328e76f6-c1bf-45fe-85a0-e35b64d7358c	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221117	19:57:40	409f06e2-3829-471f-a88e-68802377693b	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221117	20:02:28	9b5928c2-578f-49fd-ac56-18d558102071	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221117	20:07:39	adf83037-5810-4b38-be4e-6e2f177e388c	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221117	20:14:17	61fac535-e9d6-4da9-867b-138f2ced3c5c	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221117	20:35:54	76f40794-4951-4801-b3f4-d63362459cce	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221117	20:40:38	71402817-4d00-48c6-b652-e3f6f1a63836	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221117	20:42:16	47d6758b-6c3a-4ca7-9536-dbc1b022a2e3	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221117	20:44:18	23803fc0-5c25-4576-803e-db49d03747c4	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000

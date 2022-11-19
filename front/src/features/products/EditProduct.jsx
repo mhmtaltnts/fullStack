@@ -5,6 +5,7 @@ import { useGetUsersQuery } from '../users/usersApiSlice'
 import useAuth from '../../hooks/useAuth'
 import PulseLoader from 'react-spinners/PulseLoader'
 import useTitle from '../../hooks/useTitle'
+import {updateProduct} from "./useProductsApi"
 
 const EditProduct = () => {
     useTitle('techProducts: Edit Product')

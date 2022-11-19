@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSave } from "@fortawesome/free-solid-svg-icons";
 import { ROLES } from "../../config/roles";
+import { useMutation } from "react-query";
 import useTitle from "../../hooks/useTitle";
+import useUserApi from "./useUsersApi";
 
 const USER_REGEX =
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -15,10 +17,9 @@ const NewUserForm = () => {
 
   //const addUserMutation = useAddNewUserMutation()
 
-
-  const [addNewUser, { isLoading, isSuccess, isError, error }] =
-    useAddNewUserMutation();
-
+  const {addUser} = useUserApi()
+  const {mutate, isLoading, isSuccess, isError, error } =useMutation(addUser);
+  
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -61,7 +62,7 @@ const NewUserForm = () => {
   const onSaveUserClicked = async (e) => {
     e.preventDefault();
     if (canSave) {
-      await addNewUser({ email, password, roles });
+      await mutate({ email, password, roles });
     }
   };
 

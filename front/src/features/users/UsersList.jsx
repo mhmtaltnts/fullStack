@@ -1,23 +1,20 @@
 import User from "./User";
 import useTitle from "../../hooks/useTitle";
+import { useQuery} from "react-query"
 import PulseLoader from "react-spinners/PulseLoader";
-import useUserApi from "./useUsersApi";
+import useUsersApi  from "./useUsersApi";
+
 
 const UsersList = () => {
   useTitle("techNotes: Users List");
-  //const axiosPrivate = useAxiosPrivate();
-  /* const getUsers = async () => {
-    const response = await axiosPrivate.get('/users')
-    return response.data
-} */
-const [getUserQuery] = useUserApi()
+  const {getUsers} = useUsersApi()
 const {
   isSuccess,
   isLoading,
   isError,
   error,
   data: users
-} = getUserQuery
+} = useQuery("users", getUsers)
 
   let content;
 
