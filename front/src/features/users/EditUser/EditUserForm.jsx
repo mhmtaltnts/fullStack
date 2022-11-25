@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSave, faTrashCan } from "@fortawesome/free-solid-svg-icons";
-import { ROLES } from "../../config/roles";
+import { ROLES } from "../../../config/roles";
 import { useMutation, useQueryClient} from "react-query"
-import useUserApi from "./useUsersApi";
+import useUserApi from "../useUsersApi";
 
 const USER_REGEX =
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;

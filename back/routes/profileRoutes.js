@@ -1,12 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const usersController = require("../controllers/usersController");
+const profileController = require("../controllers/profileController");
+const {upload}  = require("../middleware/upload")
 const verifyJWT = require("../middleware/verifyJWT");
 
 router.use(verifyJWT);
 
 
-router.route('/:id').get(usersController.getUserById)
-router.route('/:id').delete(usersController.deleteUserById)
+router.route('/:id').get(profileController.getUserById)
+router.route('/:id').patch(upload.single('avatar'), profileController.updateUserById)
+router.route('/:id').delete(profileController.deleteUserById)
 
 module.exports = router;

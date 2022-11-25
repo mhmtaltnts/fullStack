@@ -1,29 +1,34 @@
 import { useRef, useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { setCredentials } from './authSlice'
 //import { useLoginMutation } from './authApiSlice'
 import usePersist from '../../hooks/usePersist'
 import useTitle from '../../hooks/useTitle'
 //import PulseLoader from 'react-spinners/PulseLoader'
-import axios from "../../app/api/axios"
+import { useMutation, useQueryClient  } from 'react-query'
+import useAuthApi from './useAuthApi'
 
-const LOGIN_URL = '/auth';
+
 
 const Login = () => {
+    
     useTitle('Employee Login')
     
-
-
     const userRef = useRef()
     const errRef = useRef()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [errMsg, setErrMsg] = useState('')
     const [persist, setPersist] = usePersist()
+    const {signin} = useAuthApi()
 
     const navigate = useNavigate()
-    const dispatch = useDispatch()
+    //const queryClient = useQueryClient()
+
+    /* const {mutate: login} = useMutation(signin , {
+        onSuccess: data => {
+            queryClient.setQueryData(['user'], data)
+          }
+    }) */
 
    //const [login, { isLoading }] = useLoginMutation()
 
@@ -39,13 +44,11 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await axios.post(LOGIN_URL, JSON.stringify({ email, password }))
-            const accessToken = response?.data?.accessToken;
-            console.log(accessToken)
-            dispatch(setCredentials({ accessToken }))
+            const {id} = await signin({ email, password })
             setEmail('')
-            setPassword('')
-            navigate('/dash')
+            setPassword('')            
+            console.log(id)
+            navigate(`/profile`) //profile/${id}
         } catch (err) {
             if (!err.status) {
                 setErrMsg('No Server Response');
@@ -82,6 +85,7 @@ const Login = () => {
                         className="form__input"
                         type="text"
                         id="email"
+                        name = "email"
                         ref={userRef}
                         value={email}
                         onChange={handleUserInput}
@@ -94,6 +98,7 @@ const Login = () => {
                         className="form__input"
                         type="password"
                         id="password"
+                        name = "password"
                         onChange={handlePwdInput}
                         value={password}
                         required

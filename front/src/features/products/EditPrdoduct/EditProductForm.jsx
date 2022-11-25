@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react"
-import { useUpdateProductMutation, useDeleteProductMutation } from "./productsApiSlice"
+import { useUpdateProductMutation, useDeleteProductMutation } from "../productsApiSlice"
 import { useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSave, faTrashCan } from "@fortawesome/free-solid-svg-icons"
-import useAuth from "../../hooks/useAuth"
+import useAuth from "../../../hooks/useAuth"
 
 const EditProductForm = ({ product, users }) => {
 

@@ -1,6 +1,6 @@
 const Product = require('../models/Product')
 const User = require('../models/User')
-
+const PORT = process.env.PORT || 9999;
 // @desc Get all products 
 // @route GET /products
 // @access Public
@@ -51,7 +51,7 @@ const createNewProduct = async (req, res) => {
     
     const images = []
     for (i = 0; i< req.files.length; i++){
-        images.push(`http://localhost:9999/${req.files[i].path}`)
+        images.push(`http://localhost:PORT/${req.files[i].path}`)
     }
 
     

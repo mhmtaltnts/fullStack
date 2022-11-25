@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars } from "@fortawesome/free-solid-svg-icons"
 import { faTimes } from "@fortawesome/free-solid-svg-icons"
+import { NavLink, Link } from 'react-router-dom';
 //import "./navbar.module.css"
 
 const StyledNavbar =styled.nav`
@@ -95,10 +96,7 @@ display: none;
         </StyledIcon>
     )
         
-} 
-    
-
-       
+}      
         
 
 const Navbar = () => {
@@ -116,8 +114,8 @@ const Navbar = () => {
                 <StyledLi><StyledA href="#">Home</StyledA></StyledLi>
                 <StyledLi><StyledA href="#" className='active'>Shop</StyledA></StyledLi>
                 <StyledLi><StyledA href="#">About</StyledA></StyledLi>
-                <StyledLi><StyledA href="#">Blog</StyledA></StyledLi>
-                <StyledLi><StyledA href="#">Contact</StyledA></StyledLi>
+                <StyledLi><NavLink to="/profile">Profile</NavLink></StyledLi>
+                <StyledLi><Link to="/login">Login</Link></StyledLi>
             </StyledUl>
         </div>
         <MobileIcon icon={icon} handleClick={handleClick}></MobileIcon>

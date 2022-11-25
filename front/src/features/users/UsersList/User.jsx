@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { memo } from "react";
 
 const User = ({ user }) => {
+  
   const navigate = useNavigate();
 
   if (user) {

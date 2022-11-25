@@ -1,7 +1,7 @@
 const User = require("../models/User");
 const Order = require("../models/Order");
 const bcrypt = require("bcrypt");
-
+const PORT = process.env.PORT || 9999;
 
 // @desc Get all users
 // @route GET /users
@@ -13,7 +13,7 @@ const getUserById = async (req, res) => {
 
   // Get all users from MongoDB
   const user = await User.findById(id).exec();
-console.log(user)
+  console.log(user)
 //res.setHeader('Content-Type', 'application/json')
   // If no users
   if (!user) {
@@ -28,17 +28,19 @@ console.log(user)
 // @desc Update a user
 // @route PATCH /users
 // @access Private
-const updateUser = async (req, res) => {
-  const { id, email, password } = req.body;
+const updateUserById = async (req, res) => {
+  const {id} = reg.params
+  const { first, last, address, region, country, postalCode, phone } = req.body;
+  const avatar = `http://localhost:PORT/${req.file.path}`
 
   // Confirm data
   if (
-    !id ||
-    !email
+    !name ||
+    !contact
   ) {
     return res
       .status(400)
-      .json({ message: "All fields except password are required" });
+      .json({ message: "All fields are required" });
   }
 
   // Does the user exist to update?
@@ -48,36 +50,30 @@ const updateUser = async (req, res) => {
     return res.status(400).json({ message: "User not found" });
   }
 
-  // Check for duplicate
-  const duplicate = await User.findOne({ email })
-    .collation({ locale: "en", strength: 2 })
-    .lean()
-    .exec();
+  user.name.first = first
+  user.name.last = last
+  
+  user.contact.address = address
+  user.contact.city = city
+  user.contact.country = country
+  user.contact.postalCode = postalCode
+  user.contact.phone = phone
+  user.avatar = avatar
 
-  // Allow updates to the original user
-  if (duplicate && duplicate?._id.toString() !== id) {
-    return res.status(409).json({ message: "Duplicate username" });
-  }
+  
 
-  user.email = email;
-  user.roles = roles;
-  user.active = active;
-
-  if (password) {
-    // Hash password
-    user.password = await bcrypt.hash(password, 10); // salt rounds
-  }
+  
 
   const updatedUser = await user.save();
 
-  res.json({ message: `User with ${updatedUser.email} updated` });
+  res.json({ message: `User with ${updatedUser.name.first} ${updatedUser.name.last} updated` });
 };
 
 // @desc Delete a user
 // @route DELETE /users
 // @access Private
-const deleteUser = async (req, res) => {
-  const { id } = req.body;
+const deleteUserById = async (req, res) => {
+  const { id } = req.params;
   console.log(id)
   
   // Confirm data
@@ -100,7 +96,7 @@ const deleteUser = async (req, res) => {
 
   const result = await user.deleteOne();
 
-  const reply = `User with email: ${result.email} and ID: ${result._id} deleted`;
+  const reply = `User with name: ${result.name.first} and ID: ${result._id} deleted`;
 
   res.json(reply);
 };
@@ -108,6 +104,6 @@ const deleteUser = async (req, res) => {
 
 module.exports = {
   getUserById,
-  updateUser,
+  updateUserById,
   deleteUserById,
 };

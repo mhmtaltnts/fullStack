@@ -3,8 +3,10 @@ const mongoose = require("mongoose");
 const profileSchema = new mongoose.Schema({
   userId: mongoose.Schema.Types.ObjectId,
   name: {
-    first: String,
-    last: String,
+    first: {type: String,
+            required: true},
+    last: {type: String,
+           required: true}
   },
   photo: {
     type: String,
@@ -20,7 +22,6 @@ const profileSchema = new mongoose.Schema({
     },
     region: {
       type: String,
-      required: true,
     },
     country: {
       type: String,
@@ -30,7 +31,7 @@ const profileSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
-    phone: {
+    avatar: {
       type: String,
       required: true,
     },

@@ -5,7 +5,7 @@ import { useQueryClient, useMutation } from "react-query"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSave } from "@fortawesome/free-solid-svg-icons"
 //import useProductApi from "./useProductsApi"
-import {addProduct} from "./useProductsApi"
+import {addProduct} from "../useProductsApi"
 //import axios from "axios"
 
 

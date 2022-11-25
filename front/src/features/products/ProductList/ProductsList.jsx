@@ -1,8 +1,8 @@
 import Product from "./Product"
-import useTitle from "../../hooks/useTitle"
+import useTitle from "../../../hooks/useTitle"
 import PulseLoader from 'react-spinners/PulseLoader'
 import { useQuery} from "react-query"
-import {getProducts}  from "./useProductsApi"
+import {getProducts}  from "../useProductsApi"
 
 
 

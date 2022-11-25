@@ -1,13 +1,15 @@
 import { useParams } from 'react-router-dom'
 import EditProductForm from './EditProductForm'
-import { useGetProductsQuery } from './productsApiSlice'
-import { useGetUsersQuery } from '../users/usersApiSlice'
-import useAuth from '../../hooks/useAuth'
+import { useGetProductsQuery } from '../productsApiSlice'
+import { useGetUsersQuery } from '../../users/usersApiSlice'
+import useAuth from '../../../hooks/useAuth'
 import PulseLoader from 'react-spinners/PulseLoader'
-import useTitle from '../../hooks/useTitle'
-import {updateProduct} from "./useProductsApi"
+import useTitle from '../../../hooks/useTitle'
+import {updateProduct} from "../useProductsApi"
+
 
 const EditProduct = () => {
+    
     useTitle('techProducts: Edit Product')
 
     const { id } = useParams()

@@ -1,7 +1,7 @@
 import NewProductForm from './NewProductForm'
 import PulseLoader from 'react-spinners/PulseLoader'
-import useTitle from '../../hooks/useTitle'
-import useAuth from "../../hooks/useAuth"
+import useTitle from '../../../hooks/useTitle'
+import useAuth from "../../../hooks/useAuth"
 
 const NewProduct = () => {
     useTitle('techProducts: New Product')

@@ -1,8 +1,8 @@
 import User from "./User";
-import useTitle from "../../hooks/useTitle";
+import useTitle from "../../../hooks/useTitle";
 import { useQuery} from "react-query"
 import PulseLoader from "react-spinners/PulseLoader";
-import useUsersApi  from "./useUsersApi";
+import useUsersApi  from "../useUsersApi";
 
 
 const UsersList = () => {

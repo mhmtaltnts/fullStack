@@ -7,28 +7,33 @@ import {
     faUserPlus,
     faRightFromBracket
 } from "@fortawesome/free-solid-svg-icons"
-import { useNavigate, Link, useLocation } from 'react-router-dom'
-import { useSendLogoutMutation } from '../features/auth/authApiSlice'
-import useAuth from '../hooks/useAuth'
-import PulseLoader from 'react-spinners/PulseLoader'
-import Navbar from './Navbar/Navbar'
+import { useNavigate, Link, useLocation, Form, redirect } from 'react-router-dom'
 
+import useAuth from '../../hooks/useAuth'
+import PulseLoader from 'react-spinners/PulseLoader'
+import useAuthApi from '../../features/auth/useAuthApi'
+import { useMutation} from 'react-query'
+import Navbar from '../Main/Navbar'
+import {} from "../../features/auth/useAuthApi"
 const DASH_REGEX = /^\/dash(\/)?$/
 const PRODUCTS_REGEX = /^\/dash\/products(\/)?$/
 const USERS_REGEX = /^\/dash\/users(\/)?$/
 
+
 const DashHeader = () => {
-    const { isManager, isAdmin } = useAuth()
+    const { id, isManager, isAdmin } = useAuth()
 
     const navigate = useNavigate()
     const { pathname } = useLocation()
 
-    const [sendLogout, {
+    const {signout} = useAuthApi()
+
+    const {mutate: logout, 
         isLoading,
         isSuccess,
         isError,
         error
-    }] = useSendLogoutMutation()
+    } = useMutation(signout)
 
     useEffect(() => {
         if (isSuccess) navigate('/')
@@ -99,13 +104,15 @@ const DashHeader = () => {
     }
 
     const logoutButton = (
+        
         <button
             className="icon-button"
             title="Logout"
-            onClick={sendLogout}
+            onClick={logout}
         >
             <FontAwesomeIcon icon={faRightFromBracket} />
         </button>
+        
     )
 
     const errClass = isError ? "errmsg" : "offscreen"
@@ -135,6 +142,7 @@ const DashHeader = () => {
                     <Link to="/dash">
                         <h1 className="dash-header__title">techProducts</h1>
                     </Link>
+                    <Link to={`profile/${id}`}>Profile</Link>
                     <nav className="dash-header__nav">
                         {buttonContent}
                     </nav>
