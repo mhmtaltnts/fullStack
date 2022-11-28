@@ -44,11 +44,10 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const {id} = await signin({ email, password })
+            await signin({ email, password })
             setEmail('')
-            setPassword('')            
-            console.log(id)
-            navigate(`/profile`) //profile/${id}
+            setPassword('')  
+            navigate(`/dash`) //profile/${id}
         } catch (err) {
             if (!err.status) {
                 setErrMsg('No Server Response');

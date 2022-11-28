@@ -19,24 +19,7 @@ const useAuthApi = () => {
         const response = await authAxios.post("/auth", credentials)
         const { accessToken } = response.data;
         dispatch(setCredentials({ accessToken }));
-        let isManager = false;
-        let isAdmin = false;
-        let status = "Customer";
-
-        if (accessToken) {
-            const decoded = jwtDecode(accessToken);
-            const { id, email, roles } = decoded.UserInfo;
-
-            isManager = roles.includes("Manager");
-            isAdmin = roles.includes("Admin");
-
-            if (isManager) status = "Manager";
-            if (isAdmin) status = "Admin";
-
-            return {id, email, roles, status, isManager, isAdmin };
-        }
-
-        return { id: "", email: "", roles: [], isManager, isAdmin, status };
+        
         }
         
                
