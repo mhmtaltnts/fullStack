@@ -10,9 +10,7 @@ import {ProductsRoutes} from "./features/products/ProductsRoutes"
 import {AuthRoutes} from "./features/auth/AuthRoutes"
 
 import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
+    Route, Routes
 } from "react-router-dom";
 
 import { ROLES } from "./config/roles";
@@ -22,8 +20,11 @@ import ProfileLayout from "./Layouts/Profile/ProfileLayout"
 
 /* import ForgotPasswordForm from "./features/auth/ForgotPasswordForm.jsx";
 import ResetPasswordForm from "./features/auth/ResetPasswordForm.jsx"; */
-export const router = createBrowserRouter(
-  createRoutesFromElements(    
+const App =() => {
+
+  return(
+    <Routes>
+
       <Route path='/' element={<Layout />}>
         {/* public routes */}
         {AuthRoutes}
@@ -35,7 +36,7 @@ export const router = createBrowserRouter(
         <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.Manager, ROLES.Supplier, ROLES.Customer]} />} >            
               
               {ProfileRoutes}                          
-          </Route>
+          
           </Route> 
           <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.Manager, ROLES.Supplier]} />} >            
               <Route path='dash' element={<DashLayout />}>
@@ -51,6 +52,13 @@ export const router = createBrowserRouter(
           </Route>
         
         {/* End Protected Routes */}     
-    </Route>));
+    </Route>
+    </Route>
+    </Routes>
+  )
+
+}    
+
+export default App
 
 
