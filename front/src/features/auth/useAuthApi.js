@@ -16,20 +16,14 @@ const useAuthApi = () => {
 
     
     const signin = async (credentials) => {        
-        const response = await authAxios.post("/auth", credentials)
-        const { accessToken } = response.data;
-        dispatch(setCredentials({ accessToken }));
-        
+        return await authAxios.post("/auth", credentials)
         }
-        
-               
-    
-
+   
     const signout = async() => {
         try {
             const { data } = await authAxios.post("/auth/logout" )
             console.log(data);
-            dispatch(logOut());
+            logOut()
           } catch (err) {
             console.log(err);
           }    

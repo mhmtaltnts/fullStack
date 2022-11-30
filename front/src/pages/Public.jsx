@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import Badge from '@mui/material/Badge';
+import MailIcon from '@mui/icons-material/Mail';
 
 
 const Public = () => {
@@ -6,6 +8,9 @@ const Public = () => {
         <section className="public">
             <header>
                 <h1>Welcome to <span className="nowrap">Dan D. Repairs!</span></h1>
+                <Badge badgeContent={4} color="primary">
+      <MailIcon color="action" />
+    </Badge>
             </header>
             <main className="public__main">
                 <p>Located in Beautiful Downtown Foo City, Dan D. Repairs  provides a trained staff ready to meet your tech repair needs.</p>

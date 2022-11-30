@@ -1,14 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-
-
 * {
+  font-family: "Nunito", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
+  list-style: none;
 }
 
-/* || VARIABLES */
+html{
+  font-size: 16px;
+}
+
 
 :root {
   /* COLORS */
@@ -27,20 +28,63 @@
   --INPUT-INVALID: #F00;
 }
 
-/* || UTILITY CLASSES */
-.errmsg {
+#root {
+  /* React root div */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+
+
+section {
+  width: 100%;
+  max-width: 420px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgba(0,0,0,0.4);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  padding-bottom: 1rem;
+}
+
+
+input[type="email"],
+input[type="password"],
+textarea {
+font-family: 'Nunito', sans-serif;
+font-size: 22px;
+padding: 0.25rem;
+border-radius: 0.5rem;
+}
+
+
+a {
   display: inline-block;
-  background-color: var(--TABLE-BGCOLOR);
-  color: var(--ERROR);
-  padding: 0.25em;
-  margin-bottom: 0.5em;
+  text-decoration: none;
+  color: inherit;
+  font-family: inherit;
 }
 
-.errmsg a:any-link {
-  color: var(--ERROR);
-  text-decoration: underline;
+a:any-link {
+  color: var(--LINK-COLOR);
 }
 
+a:hover,
+a:focus-visible {
+  color: var(--LINK-HOVER);
+}
+a, a:visited {
+  color: #fff;
+}
 .nowrap {
   white-space: nowrap;
 }
@@ -67,43 +111,7 @@
 
 /* || GENERAL STYLES */
 
-body {
-  font-family: 'Nunito', sans-serif;
-  min-height: 100vh;
-  background-color: var(--BGCOLOR);
-  color: var(--COLOR);
-  background-image: url('./img/background.jpg');
-  background-size: cover;
-  background-position: top right;
-  background-blend-mode: multiply;
-}
 
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-#root {
-  /* React root div */
-  min-height: 100vh;
-  display: flex;
-  flex-flow: column nowrap;
-}
-
-a {
-  text-decoration: none;
-}
-
-a:any-link {
-  color: var(--LINK-COLOR);
-}
-
-a:hover,
-a:focus-visible {
-  color: var(--LINK-HOVER);
-}
 
 /* || PAGES */
 
@@ -394,47 +402,7 @@ color:black;
 
 
 /**/
-section {
-    width: 100%;
-    max-width: 420px;
-    min-height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 1rem;
-    background-color: rgba(0,0,0,0.4);
-}
 
-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    flex-grow: 1;
-    padding-bottom: 1rem;
-}
-
-a, a:visited {
-    color: #fff;
-}
-
-input[type="email"],
-input[type="password"],
-button,
-textarea {
-  font-family: 'Nunito', sans-serif;
-  font-size: 22px;
-  padding: 0.25rem;
-  border-radius: 0.5rem;
-}
-
-label,
-button {
-  margin-top: 1rem;
-}
-
-button {
-  padding: 0.5rem;
-}
 
 .instructions {
     font-size: 0.75rem;

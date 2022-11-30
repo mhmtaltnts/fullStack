@@ -1,11 +1,14 @@
 import { useRef, useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-//import { useLoginMutation } from './authApiSlice'
+import { useDispatch} from 'react-redux'
+import { setCredentials } from './authSlice'
 import usePersist from '../../hooks/usePersist'
 import useTitle from '../../hooks/useTitle'
-//import PulseLoader from 'react-spinners/PulseLoader'
-import { useMutation, useQueryClient  } from 'react-query'
+import PulseLoader from 'react-spinners/PulseLoader'
+import { useMutation} from 'react-query'
 import useAuthApi from './useAuthApi'
+import { ErrorMsg, Form, Label, Button, Input, Main, Section, Header, CheckBox  } from '../../styles/styled-elements'
+
 
 
 
@@ -20,17 +23,34 @@ const Login = () => {
     const [errMsg, setErrMsg] = useState('')
     const [persist, setPersist] = usePersist()
     const {signin} = useAuthApi()
-
+    const dispatch = useDispatch()
     const navigate = useNavigate()
-    //const queryClient = useQueryClient()
+    
 
-    /* const {mutate: login} = useMutation(signin , {
-        onSuccess: data => {
-            queryClient.setQueryData(['user'], data)
-          }
-    }) */
+    const {mutate: login, isLoading, isError} = useMutation(signin, {
+        
+        onSuccess: (response) => {
+            const {accessToken} = response.data
+            dispatch(setCredentials({ accessToken }))
+            setEmail('')
+            setPassword('')
+            console.log("succces")
+            navigate('/dash')
 
-   //const [login, { isLoading }] = useLoginMutation()
+        },
+        
+        onError : (err) => {
+            if (!err.response.status) {
+                setErrMsg('No Server Response');
+            } else if (err.response.status === 400) {
+                setErrMsg('Missing Username or Password');
+            } else if (err.response.status === 401) {
+                setErrMsg('Unauthorized');
+            } else {
+                setErrMsg(err?.message);                
+            }
+        }
+    })
 
     useEffect(() => {
         userRef.current.focus()
@@ -43,45 +63,31 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        try {
-            await signin({ email, password })
-            setEmail('')
-            setPassword('')  
-            navigate(`/dash`) //profile/${id}
-        } catch (err) {
-            if (!err.status) {
-                setErrMsg('No Server Response');
-            } else if (err.status === 400) {
-                setErrMsg('Missing Email or Password');
-            } else if (err.status === 401) {
-                setErrMsg('Unauthorized');
-            } else {
-                setErrMsg(err.data?.message);
-            }
-            errRef.current.focus();
-        }
+        login({ email, password })
     }
+
 
     const handleUserInput = (e) => setEmail(e.target.value)
     const handlePwdInput = (e) => setPassword(e.target.value)
     const handleToggle = () => setPersist(prev => !prev)
 
-    const errClass = errMsg ? "errmsg" : "offscreen"
+    //const errClass = errMsg ? "errmsg" : "offscreen"
 
-    //if (isLoading) return <PulseLoader color={"#FFF"} />
+    if (isLoading) return <PulseLoader color={"#FFF"} />
+    //if (isError) return <ErrorMsg ref={errRef} error={isError} aria-live="assertive">{errMsg}</ErrorMsg>
+
+    
 
     const content = (
-        <section className="public">
-            <header>
-                <h1>Employee Login</h1>
-            </header>
-            <main className="login">
-                <p ref={errRef} className={errClass} aria-live="assertive">{errMsg}</p>
-
-                <form className="form" onSubmit={handleSubmit}>
-                    <label htmlFor="email">Email:</label>
-                    <input
-                        className="form__input"
+        <Section>
+            <Header>
+                <h1>Welcome</h1>
+            </Header>
+            <Main >
+            <ErrorMsg ref={errRef} error={isError} aria-live="assertive">{errMsg}</ErrorMsg>
+                <Form onSubmit={handleSubmit}>
+                    <Label htmlFor="email">Email:</Label>
+                    <Input                        
                         type="text"
                         id="email"
                         name = "email"
@@ -92,9 +98,8 @@ const Login = () => {
                         required
                     />
 
-                    <label htmlFor="password">Password:</label>
-                    <input
-                        className="form__input"
+                    <Label htmlFor="password">Password:</Label>
+                    <Input                        
                         type="password"
                         id="password"
                         name = "password"
@@ -102,25 +107,24 @@ const Login = () => {
                         value={password}
                         required
                     />
-                    <button className="form__submit-button">Sign In</button>
+                    <Button>Sign In</Button>
 
 
-                    <label htmlFor="persist" className="form__persist">
-                        <input
+                    <Label htmlFor="persist" className="form__persist">
+                        <CheckBox
                             type="checkbox"
-                            className="form__checkbox"
                             id="persist"
                             onChange={handleToggle}
                             checked={persist}
                         />
                         Trust This Device
-                    </label>
-                </form>
-            </main>
+                    </Label>
+                </Form>
+            </Main>
             <footer>
                 <Link to="/">Back to Home</Link>
             </footer>
-        </section>
+        </Section>
     )
 
     return content

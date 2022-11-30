@@ -327,3 +327,5 @@ Require stack:
 20221121	18:30:06	2abc45c0-fef7-43a4-a17f-01dff974b22b	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
 20221121	20:51:53	111bfcdd-36c1-4ed9-9332-b1daa80820a9	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
 20221121	20:52:00	f283cf96-78a9-4476-9a0c-55030f7c7cff	TypeError: Cannot read properties of null (reading 'email')	GET	/products	http://localhost:3000
+20221129	20:58:26	db61b146-dcc2-4edc-b561-cbf42c62ee48	Too Many Requests: Too many login attempts from this IP, please try again after a 60 second pause	POST	/	http://localhost:3000
+20221129	20:58:28	2f29c91d-7f1e-4005-a423-da1f78d87493	Too Many Requests: Too many login attempts from this IP, please try again after a 60 second pause	POST	/	http://localhost:3000

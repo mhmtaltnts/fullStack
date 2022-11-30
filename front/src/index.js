@@ -6,11 +6,7 @@ import { store } from "./app/store";
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
-import {  
-  
-  BrowserRouter, 
-} from "react-router-dom";
-
+import { MyThemeProvider } from "./context/MyThemeProvider";
 
 
 const queryClient = new QueryClient()
@@ -22,13 +18,15 @@ const queryClient = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    
     <Provider store={store}> 
-    <QueryClientProvider client={queryClient}>        
-    <App />
-      <ReactQueryDevtools initialIsOpen />     
+      <QueryClientProvider client={queryClient}>
+          <MyThemeProvider>     
+            <App/>
+          </MyThemeProvider>    
+          <ReactQueryDevtools initialIsOpen />
       </QueryClientProvider>
     </Provider>
-    </BrowserRouter>
+    
   </React.StrictMode>
 );

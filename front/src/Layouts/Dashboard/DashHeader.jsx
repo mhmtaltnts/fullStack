@@ -15,6 +15,7 @@ import useAuthApi from '../../features/auth/useAuthApi'
 import { useMutation} from 'react-query'
 import Navbar from '../Main/Navbar'
 import {} from "../../features/auth/useAuthApi"
+
 const DASH_REGEX = /^\/dash(\/)?$/
 const PRODUCTS_REGEX = /^\/dash\/products(\/)?$/
 const USERS_REGEX = /^\/dash\/users(\/)?$/
@@ -22,6 +23,7 @@ const USERS_REGEX = /^\/dash\/users(\/)?$/
 
 const DashHeader = () => {
     const { id, isManager, isAdmin } = useAuth()
+    
 
     const navigate = useNavigate()
     const { pathname } = useLocation()
@@ -139,12 +141,9 @@ const DashHeader = () => {
             <header className="dash-header">
                     {/* <Navbar/> */}
                 <div className={`dash-header__container ${dashClass}`}>
-                    <Link to="/dash">
-                        <h1 className="dash-header__title">techProducts</h1>
-                    </Link>
-                    <Link to={`profile/${id}`}>Profile</Link>
                     <nav className="dash-header__nav">
                         {buttonContent}
+                        
                     </nav>
                 </div>
             </header>
